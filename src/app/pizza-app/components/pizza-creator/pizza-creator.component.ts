@@ -51,6 +51,11 @@ import { FormArray } from '@angular/forms';
           </pizza-size>
 
           <h3>Pick your toppings</h3>
+          
+          <pizza-viewer
+            [pizzas]="pizzas"
+            [activePizza]="0">
+          </pizza-viewer>
           <pizza-toppings 
             formControlName="toppings">
           </pizza-toppings>
@@ -90,7 +95,7 @@ export class PizzaCreatorComponent {
 
   addPizza() {
     this.add.emit();
-    this.openPizza = this.pizzas.length - 1;
+    this.openPizza = this.pizzas?.length - 1;
   }
 
   removePizza(index: number) {

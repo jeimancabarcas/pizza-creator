@@ -6,90 +6,54 @@ import { FormGroup } from '@angular/forms';
   standalone: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['pizza-form.component.scss'],
-  template: `
-    <form (ngSubmit)="onSubmit($event)" [formGroup]="parent">
-    
-      <h2>Enter your details</h2>
-      <div class="section" formGroupName="details">
-        <div class="input">
-          <label>
-            Name <span class="required">*</span>
-            <span *ngIf="parent.get('details')?.get('name')?.hasError('required') && parent.get('details')?.get('name')?.touched"
-                  class="error">
-              Field is required
-            </span>
-          </label>
-          <input formControlName="name" type="text" placeholder="John Smith">
+  template: `<form (ngSubmit)="onSubmit($event)" [formGroup]="parent">
+  <div >
+    <div class="border-b border-gray-900/10 pb-3">
+      <h2 class="text-base/7 font-semibold text-gray-900">Digita tu información</h2>
+      <p class="mt-1 text-sm/6 text-gray-600">Esta información sera usada para registrar tu pedido</p>
+      <div class="mt-4 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6" formGroupName="details">
+        <div class="sm:col-span-3">
+          <label for="first-name" class="block text-sm/6 font-medium text-gray-900">Nombre</label>
+          <div class="mt-2">
+            <input formControlName="name" type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
         </div>
-        <div class="input">
-          <label>
-            Email <span class="required">*</span>
-            <span *ngIf="parent.get('details')?.get('email')?.errors && parent.get('details')?.get('email')?.touched"
-                  class="error">
-              Field is required
-            </span>
-          </label>
-          <input formControlName="email" type="email" placeholder="Enter your email">
-        </div>
-        <div class="input">
-          <label>
-            Confirm <span class="required">*</span>
-            <span *ngIf="parent.get('details')?.get('confirm')?.errors && parent.get('details')?.get('confirm')?.touched"
-                  class="error">
-              <span *ngIf="parent.get('details')?.get('confirm')?.hasError('required')">
-                Field is required
-              </span>
-            </span>
-            <span class="error" *ngIf="!parent.get('details')?.get('confirm')?.hasError('required') && parent.get('details')?.touched && parent.get('details')?.hasError('nomatch')">
-              Emails must match
-            </span>
-          </label>
-          <input formControlName="confirm" type="email" placeholder="Confirm your email">
-        </div>
-      </div>
-      <div class="section" formGroupName="details">
-        <div class="input">
-          <label>
-            Address <span class="required">*</span>
-            <span *ngIf="parent.get('details')?.get('address')?.errors && parent.get('details')?.get('address')?.touched"
-                  class="error">
-              <span *ngIf="parent.get('details')?.get('address')?.hasError('required')">
-                Field is required
-              </span>
-              <span *ngIf="parent.get('details')?.get('address')?.hasError('minlength')">
-                Min of 3 characters
-              </span>
-            </span>
-          </label>
-          <input formControlName="address" type="text" placeholder="44 Pizza Street">
-        </div>
-        <div class="input">
-          <label>
-            Postcode <span class="required">*</span>
-            <span *ngIf="parent.get('details')?.get('postcode')?.errors && parent.get('details')?.get('postcode')?.touched"
-                  class="error">
-              <span *ngIf="parent.get('details')?.get('postcode')?.hasError('required')">
-                Field is required
-              </span>
-              <span *ngIf="parent.get('details')?.get('postcode')?.hasError('minlength')">
-                Min of 3 characters
-              </span>
-            </span>
-          </label>
-          <input formControlName="postcode" type="text" placeholder="PI3 3AS">
-        </div>
-        <div class="input">
-          <label>
-            Contact Number <span class="required">*</span>
-            <span *ngIf="parent.get('details')?.get('phone')?.errors && parent.get('details')?.get('phone')?.touched"
-                  class="error">
-              Field is required
-            </span>
-          </label>
-          <input formControlName="phone" type="text" placeholder="01234 567 890">
-        </div>
-      </div>
 
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm/6 font-medium text-gray-900">Apellido</label>
+          <div class="mt-2">
+            <input formControlName="lastName" type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+        
+        <div class="sm:col-span-3">
+          <label for="first-name" class="block text-sm/6 font-medium text-gray-900">Numero de Whatsapp</label>
+          <div class="mt-2">
+            <input formControlName="whatsappPhone" type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm/6 font-medium text-gray-900">Numero de contacto</label>
+          <div class="mt-2">
+            <input formControlName="phone" type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+
+        <div class="col-span-full">
+          <label for="street-address" class="block text-sm/6 font-medium text-gray-900">Dirección</label>
+          <div class="mt-2">
+            <input formControlName="address" type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-2 flex items-center justify-end gap-x-6">
+    <button type="button" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
+    <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+  </div>
       <pizza-creator 
         [pizzas]="parent.get('pizzas')"
         (add)="onAddPizza($event)"
@@ -102,8 +66,7 @@ import { FormGroup } from '@angular/forms';
         [prices]="prices"
         [total]="total">
       </pizza-summary>
-
-    </form>
+</form>
   `
 })
 export class PizzaFormComponent {

@@ -1,33 +1,12 @@
 .pizza-viewer {
-  width: 530px;
   position: relative;
-
-  &__table-side, &__table {
-    width: 1110px;
-    transform: skewX(62deg);
-    position: absolute;
-    left: 310px;
-    height: 1100px;
-    z-index: 0;
-  }
-  &__table-side {
-    background: #2E3744;
-    top: 380px;
-    width: 1885px;
-    left: -500px;
-  }
-
-  &__table {
-    background: #3A424F;
-    top: 0;
-  }
 }
 
 .pizza {
-  width: 530px;
-  height: 50vh;
-  position: fixed;
+  height: 300px;
+  overflow: hidden;
   z-index: 1;
+  position: relative;
   transform: translate3d(-530px, -282px, 0);
   transition: transform 0.2s;
 
@@ -38,32 +17,34 @@
   &__board {
     background: url('/assets/toppings/board.svg') no-repeat 0 20px;
     background-size: contain;
-    width: 500px;
-    height: 342px;
+    width: 420px;
+    height: 300px;
     position: absolute;
     z-index: 1;
-    top: 30px;
-    left: 30px;
+    top: 20px;
   }
 
   &__base {
     background: url('/assets/toppings/base.svg') no-repeat;
     background-size: contain;
-    width: 390px;
+    width: 330px;
     height: 322px;
     position: absolute;
-    right: 23px;
+    left: 70px;
     top: 30px;
     z-index: 2;
   }
 
   &__toppings {
-    width: 352px;
-    height: 190px;
+    width: 300px;
+    height: 160px;
     position: absolute;
-    right: 42px;
+    right: 60px;
     top: 46px;
     z-index: 3;
+    &-container {
+      width: 300px;
+    }
   }
 
   &__topping {
@@ -81,7 +62,7 @@
         top: 26px;
       }
       &:nth-child(2) {
-        left: 8px;
+        left: 58px;
         top: 82px;
       }
       &:nth-child(3) {
@@ -102,20 +83,20 @@
         top: 50px;
       }
       &:nth-child(2) {
-        left: 39px;
+        left: 59px;
         top: 100px;
       }
       &:nth-child(3) {
-        left: 132px;
+        left: 192px;
         top: 86px;
       }
       &:nth-child(4) {
-        left: 199px;
+        left: 259px;
         top: 59px;
       }
       &:nth-child(5) {
-        left: 140px;
-        top: 154px;
+        left: 160px;
+        top: 124px;
       }
     }
     &--basil {
@@ -129,7 +110,7 @@
       }
       &:nth-child(2) {
         left: 126px;
-        top: 127px;
+        top: 117px;
       }
       &:nth-child(3) {
         left: 222px;
@@ -153,16 +134,16 @@
         top: 77px;
       }
       &:nth-child(3) {
-        left: 52px;
-        top: 144px;
+        left: 162px;
+        top: 124px;
       }
       &:nth-child(4) {
         left: 210px;
         top: 17px;
       }
       &:nth-child(5) {
-        left: 240px;
-        top: 120px;
+        left: 230px;
+        top: 100px;
       }
     }
     &--mozzarella {
@@ -171,7 +152,7 @@
       height: 32px;
 
       &:nth-child(1) {
-        left: 6px;
+        left: 66px;
         top: 106px;
       }
       &:nth-child(2) {
@@ -196,11 +177,11 @@
         top: 20px;
       }
       &:nth-child(2) {
-        left: 40px;
+        left: 50px;
         top: 60px;
       }
       &:nth-child(3) {
-        left: 90px;
+        left: 100px;
         top: 120px;
       }
       &:nth-child(4) {
@@ -247,7 +228,7 @@
         top: 55px;
       }
       &:nth-child(2) {
-        left: 10px;
+        left: 50px;
         top: 61px;
       }
       &:nth-child(3) {
@@ -276,7 +257,7 @@
         top: 87px;
       }
       &:nth-child(3) {
-        left: 30px;
+        left: 60px;
         top: 81px;
       }
       &:nth-child(4) {
@@ -285,7 +266,7 @@
       }
       &:nth-child(5) {
         left: 105px;
-        top: 147px;
+        top: 117px;
       }
     }
     &--pepperoni {
@@ -303,7 +284,7 @@
       }
       &:nth-child(3) {
         left: 81px;
-        top: 21px;
+        top: 25px;
       }
       &:nth-child(4) {
         left: 221px;
@@ -311,7 +292,7 @@
       }
       &:nth-child(5) {
         left: 75px;
-        top: 137px;
+        top: 90px;
       }
     }
     &--sweetcorn {
@@ -324,12 +305,12 @@
         top: 35px;
       }
       &:nth-child(2) {
-        left: 41px;
+        left: 60px;
         top: 41px;
       }
       &:nth-child(3) {
         left: 212px;
-        top: 146px;
+        top: 110px;
       }
       &:nth-child(4), &:nth-child(5) {
         display: none;
@@ -342,10 +323,10 @@
 
       &:nth-child(1) {
         left: 175px;
-        top: 147px;
+        top: 117px;
       }
       &:nth-child(2) {
-        left: 41px;
+        left: 60px;
         top: 41px;
       }
       &:nth-child(3) {
@@ -354,7 +335,7 @@
       }
       &:nth-child(4) {
         left: 280px;
-        top: 99px;
+        top: 80px;
       }
       &:nth-child(5) {
         display: none;

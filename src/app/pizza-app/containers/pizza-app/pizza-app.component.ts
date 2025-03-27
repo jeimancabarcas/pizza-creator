@@ -7,24 +7,19 @@ import { PizzaValidators } from '../../validators/pizza.validator';
   styleUrls: ['pizza-app.component.scss'],
   standalone: false,
   template: `
-    <div class="pizza-app">
-
-      <pizza-viewer
-        [pizzas]="form.get('pizzas')"
-        [activePizza]="activePizza">
-      </pizza-viewer>
-
+  <div class="p-3 w-full">
+    <div>
       <pizza-form
-        [parent]="form"
-        [total]="total"
-        [prices]="prices"
-        (add)="addPizza()"
-        (remove)="removePizza($event)"
-        (toggle)="togglePizza($event)"
-        (submit)="createOrder($event)">
-      </pizza-form>
-
+          [parent]="form"
+          [total]="total"
+          [prices]="prices"
+          (add)="addPizza()"
+          (remove)="removePizza($event)"
+          (toggle)="togglePizza($event)"
+          (submit)="createOrder($event)">
+        </pizza-form>
     </div>
+  </div>
   `
 })
 export class PizzaAppComponent implements OnInit {
@@ -38,22 +33,24 @@ export class PizzaAppComponent implements OnInit {
     medium: { base: 12.99, toppings: 0.99 },
     large: { base: 16.99, toppings: 1.29 }
   };
+  form;
 
-  form = this.fb.group({
-    details: this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      confirm: ['', Validators.required],
-      phone: ['', Validators.required],
-      address: ['', [Validators.required, Validators.minLength(3)]],
-      postcode: ['', [Validators.required, Validators.minLength(3)]]
-    }, { validator: PizzaValidators.checkEmailsMatch }),
-    pizzas: this.fb.array([
-      this.createPizza()
-    ])
-  });
+  constructor() {
+    
+    this.form = this.fb.group({
+      details: this.fb.group({
+        name: ['', Validators.required],
+        lastName: ['', Validators.required],
+        whatsappPhone: ['', Validators.required],
+        phone: ['', Validators.required],
+        address: ['', [Validators.required, Validators.minLength(3)]],
+      }),
+      pizzas: this.fb.array([
+        this.createPizza()
+      ])
+    });
 
-  constructor() {}
+  }
 
   ngOnInit() {
     this.calculateTotal(this.form.get('pizzas')?.value);

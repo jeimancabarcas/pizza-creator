@@ -28,13 +28,10 @@ export const DROP_ANIMATION = trigger('drop', [
   standalone: false,
   template: `
     <div class="pizza-viewer">
-      <div class="pizza-viewer__table-side"></div>
-      <div class="pizza-viewer__table"></div>
-      {{ activePizza }}
       <div
         class="pizza"
         [class.pizza--active]="activePizza === i"
-        *ngFor="let pizza of pizzas.controls; let i = index;">
+        *ngFor="let pizza of pizzas?.controls; let i = index;">
         <div class="pizza__board"></div>
         <div class="pizza__base"></div>
         <div class="pizza__toppings">
